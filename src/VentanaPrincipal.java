@@ -1,12 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author erividzem
- */
 public class VentanaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName());
@@ -78,7 +71,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuCrearXMLActionPerformed
 
     private void menuLeerXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLeerXMLActionPerformed
-        // Abre la ventana para leer el XML generado
+        // Antes de abrir la ventana comprueba si existe el archivo peliculas.xml
+        java.io.File archivo = new java.io.File("peliculas.xml");
+
+        if (!archivo.exists()) {
+            JOptionPane.showMessageDialog(this, """
+                                                El archivo peliculas.xml no existe 
+                                                Debes de generarlo primero""");
+            return;
+        }
+
+        // Si existe se abre la ventana de lectura
         VentanaLeerXML v = new VentanaLeerXML();
         v.setVisible(true);
     }//GEN-LAST:event_menuLeerXMLActionPerformed
