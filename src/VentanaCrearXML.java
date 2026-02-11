@@ -1,7 +1,16 @@
+
+import javax.swing.JOptionPane;
+
 public class VentanaCrearXML extends javax.swing.JFrame {
     
     
-    private
+    /* Listas para almacenar las películas por género
+    He decidido usar tres listas separadas para controlar de
+    manera más fácil el límite de 3 películas por cada género */
+    private java.util.List<String> misterio = new java.util.ArrayList<>();
+    private java.util.List<String> aventura = new java.util.ArrayList<>();
+    private java.util.List<String> comedia = new java.util.ArrayList<>();
+
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaCrearXML.class.getName());
 
@@ -47,6 +56,11 @@ public class VentanaCrearXML extends javax.swing.JFrame {
         jLabel4.setText("URL del Tráiler");
 
         btnAgregar.setText("AGREGAR PELÍCULA");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         txtLista.setColumns(20);
         txtLista.setRows(5);
@@ -118,6 +132,82 @@ public class VentanaCrearXML extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // Se recogen los datos introducidos por el usuario
+        String genero = comboGenero.getSelectedItem().toString();
+        String titulo = txtTitulo.getText().trim();
+        String duracionTexto = txtDuracion.getText().trim();
+        String url = txtTrailer.getText().trim();
+
+        // VALIDACIÓN: El título no puede estar vacío
+        if (titulo.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El título no puede estar vacío");
+            return;
+        }
+
+        
+        // VALIDACIÓN: Duración tiene que ser positivo o entero
+        int duracion;
+        try {
+            duracion = Integer.parseInt(duracionTexto);
+            if (duracion <= 0) {
+                JOptionPane.showMessageDialog(this, "La duración debe ser un número positivo");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "La duración debe ser un número entero válido");
+            return;
+        }
+
+        // VALIDACIÓN: Una URL válida
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+            JOptionPane.showMessageDialog(this, "La URL debe de empezar por http:// o https://");
+            return;
+        }
+
+        
+        // LÍMITE DE CONTROL: Máximo 3 por género
+        java.util.List<String> listaSeleccionada = null;
+
+        switch (genero) {
+            case "Misterio" -> listaSeleccionada = misterio;
+            case "Aventura" -> listaSeleccionada = aventura;
+            case "Comedia" -> listaSeleccionada = comedia;
+            default -> {
+            }
+        }
+
+        // VALIDACIÓN: Número máximo de 3 películas
+        if (listaSeleccionada.size() >= 3) {
+            JOptionPane.showMessageDialog(this, "Ya existen 3 películas para el género " + genero);
+            return;
+        }
+
+        
+        // Se guardan los datos separados por barras |
+        String pelicula = titulo + "|" + duracion + "|" + url;
+        listaSeleccionada.add(pelicula);
+
+        // Texto sacado al txtLista
+        txtLista.append("Género: " + genero + "\n");
+        txtLista.append("Título: " + titulo + "\n");
+        txtLista.append("Duración: " + duracion + " minutos\n");
+        txtLista.append("URL: " + url + "\n");
+        txtLista.append("-----------------------------\n");
+
+        // Limpia los campos para la siguiente
+        txtTitulo.setText("");
+        txtDuracion.setText("");
+        txtTrailer.setText("");
+
+        // COMPROBACIÓN: Si ya podemos activar el botón GENERAR XML
+        // Solo si hay 3 en cada lista (9 en total)
+        if (misterio.size() == 3 && aventura.size() == 3 && comedia.size() == 3) {
+            btnGenerar.setEnabled(true);
+        }
+
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
