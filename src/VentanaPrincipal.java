@@ -34,7 +34,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alta de Películas");
-        setPreferredSize(new java.awt.Dimension(600, 550));
 
         jMenu1.setText("Funcionalidades");
 

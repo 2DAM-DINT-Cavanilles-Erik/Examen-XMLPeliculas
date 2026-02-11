@@ -1,4 +1,3 @@
-
 import javax.swing.JOptionPane;
 
 public class VentanaCrearXML extends javax.swing.JFrame {
@@ -44,16 +43,25 @@ public class VentanaCrearXML extends javax.swing.JFrame {
         btnGenerar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Género");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 47, 75, -1));
 
         comboGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Misterio", "Aventura", "Comedia" }));
+        getContentPane().add(comboGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 44, 107, -1));
 
         jLabel2.setText("Título");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 84, -1, -1));
+        getContentPane().add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 84, 107, -1));
 
         jLabel3.setText("Duración(minutos)");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 126, -1, -1));
+        getContentPane().add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 124, 107, -1));
 
         jLabel4.setText("URL del Tráiler");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 164, -1, -1));
+        getContentPane().add(txtTrailer, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 164, 107, -1));
 
         btnAgregar.setText("AGREGAR PELÍCULA");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -61,74 +69,22 @@ public class VentanaCrearXML extends javax.swing.JFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 188, -1, -1));
 
         txtLista.setColumns(20);
         txtLista.setRows(5);
         jScrollPane1.setViewportView(txtLista);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 306, 562, 228));
+
         btnGenerar.setText("GENERAR XML");
         btnGenerar.setEnabled(false);
-
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(76, 76, 76)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 75, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel2)
-                    .add(jLabel3)
-                    .add(jLabel4))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(comboGenero, 0, 107, Short.MAX_VALUE)
-                    .add(txtTitulo)
-                    .add(txtDuracion)
-                    .add(txtTrailer))
-                .add(109, 109, 109))
-            .add(layout.createSequentialGroup()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(18, 18, 18)
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 562, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(layout.createSequentialGroup()
-                        .add(216, 216, 216)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(btnAgregar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(btnGenerar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(44, 44, 44)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel1)
-                    .add(comboGenero, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel2)
-                    .add(txtTitulo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(20, 20, 20)
-                        .add(jLabel3))
-                    .add(layout.createSequentialGroup()
-                        .add(18, 18, 18)
-                        .add(txtDuracion, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .add(18, 18, 18)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel4)
-                    .add(txtTrailer, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(2, 2, 2)
-                .add(btnAgregar)
-                .add(54, 54, 54)
-                .add(btnGenerar)
-                .add(18, 18, 18)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 228, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 265, 137, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,6 +164,135 @@ public class VentanaCrearXML extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        /* Este método genera el archivo peliculas.xml usando la API DOM.
+        Primero se construye el documento en memoria y después lo guardamos
+        en la raíz del proyecto a través de un Transformer */
+
+
+        // Comprobación de seguridad antes de generar el XML
+        if (misterio.size() != 3 || aventura.size() != 3 || comedia.size() != 3) {
+            JOptionPane.showMessageDialog(this, "Tiene que haber exactamente 3 películas por cada género");
+            return;
+        }
+        
+        try {
+        // Se crea el documento XML en memoria usando DOM
+            javax.xml.parsers.DocumentBuilderFactory factory =
+            javax.xml.parsers.DocumentBuilderFactory.newInstance();
+
+            javax.xml.parsers.DocumentBuilder builder =
+            factory.newDocumentBuilder();
+
+            org.w3c.dom.Document doc = builder.newDocument();
+            
+            // Nodo raíz <peliculas>
+            org.w3c.dom.Element raiz = doc.createElement("peliculas");
+            doc.appendChild(raiz);
+            
+            
+            // PROCESO GÉNERO MISTERIO
+            org.w3c.dom.Element nodoMisterio = doc.createElement("misterio");
+            raiz.appendChild(nodoMisterio);
+            
+            for (String p : misterio) {
+                String[] partes = p.split("\\|");
+
+                org.w3c.dom.Element pelicula = doc.createElement("pelicula");
+
+                org.w3c.dom.Element titulo = doc.createElement("titulo");
+                titulo.setTextContent(partes[0]);
+
+                org.w3c.dom.Element duracion = doc.createElement("duracion");
+                duracion.setTextContent(partes[1]);
+
+                org.w3c.dom.Element trailer = doc.createElement("trailer");
+                trailer.setTextContent(partes[2]);
+
+                pelicula.appendChild(titulo);
+                pelicula.appendChild(duracion);
+                pelicula.appendChild(trailer);
+
+                nodoMisterio.appendChild(pelicula);
+            }
+            
+            // PROCESO GÉNERO AVENTURA
+            org.w3c.dom.Element nodoAventura = doc.createElement("aventura");
+            raiz.appendChild(nodoAventura);
+
+            for (String p : aventura) {
+                String[] partes = p.split("\\|");
+
+                org.w3c.dom.Element pelicula = doc.createElement("pelicula");
+
+                org.w3c.dom.Element titulo = doc.createElement("titulo");
+                titulo.setTextContent(partes[0]);
+
+                org.w3c.dom.Element duracion = doc.createElement("duracion");
+                duracion.setTextContent(partes[1]);
+
+                org.w3c.dom.Element trailer = doc.createElement("trailer");
+                trailer.setTextContent(partes[2]);
+
+                pelicula.appendChild(titulo);
+                pelicula.appendChild(duracion);
+                pelicula.appendChild(trailer);
+
+                nodoAventura.appendChild(pelicula);
+            }
+
+            
+            // PROCESO GÉNERO AVENTURA
+            org.w3c.dom.Element nodoComedia = doc.createElement("comedia");
+            raiz.appendChild(nodoComedia);
+
+            for (String p : comedia) {
+                String[] partes = p.split("\\|");
+
+                org.w3c.dom.Element pelicula = doc.createElement("pelicula");
+
+                org.w3c.dom.Element titulo = doc.createElement("titulo");
+                titulo.setTextContent(partes[0]);
+
+                org.w3c.dom.Element duracion = doc.createElement("duracion");
+                duracion.setTextContent(partes[1]);
+
+                org.w3c.dom.Element trailer = doc.createElement("trailer");
+                trailer.setTextContent(partes[2]);
+
+                pelicula.appendChild(titulo);
+                pelicula.appendChild(duracion);
+                pelicula.appendChild(trailer);
+
+                nodoComedia.appendChild(pelicula);
+            }
+            
+            
+            // Ahora se transforma el documento en un archivo XML real
+            javax.xml.transform.TransformerFactory tf =
+            javax.xml.transform.TransformerFactory.newInstance();
+            // Esto hace que el XML salga con indentación bonita (saltos de línea)
+            javax.xml.transform.Transformer transformer = tf.newTransformer();
+
+            javax.xml.transform.dom.DOMSource origen =
+                new javax.xml.transform.dom.DOMSource(doc);
+            java.io.File archivo = new java.io.File("peliculas.xml");
+
+            javax.xml.transform.stream.StreamResult destino =
+                new javax.xml.transform.stream.StreamResult(archivo);
+
+            transformer.transform(origen, destino);
+
+            JOptionPane.showMessageDialog(this, "Se ha generado el archivo peliculas.xml");
+
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al generar el XML");
+    }
+
+    }//GEN-LAST:event_btnGenerarActionPerformed
 
     /**
      * @param args the command line arguments
